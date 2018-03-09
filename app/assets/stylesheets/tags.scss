@@ -1,0 +1,23 @@
+// Place all the styles related to the Tags controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.tag {
+    background: #949df8;
+    color: #ffffff;
+    display: inline;
+    padding: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
+    line-height: 2em;
+    border-radius: 8px;
+    margin: 4px;
+    .tag::before {
+      content: "#";
+    }
+    &:hover {
+        color: #FFFFFF;
+        background-color: #767dc6;
+    }
+}

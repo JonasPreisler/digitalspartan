@@ -1,0 +1,18 @@
+.collection_sidebar {
+  float:left;
+  position: absolute;
+  width: 33%;
+  overflow: hidden;
+}
+
+.collection {
+  float: right;
+  width: 50%;
+  .collection_cover {
+    img {
+    width: 100%;
+    border-radius: .3rem .3rem 0 0;
+      opacity:0.5;
+    }
+  }
+}

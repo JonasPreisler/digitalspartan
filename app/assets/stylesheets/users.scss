@@ -1,0 +1,99 @@
+    #user_info {
+    h3 {
+      font-size: 1rem;
+    }
+      .avatar {
+        overflow: hidden;
+        img {
+          border-radius: .3rem .3rem 0 0;
+        }
+      }
+      .user_bio {
+        h2 {
+          margin: 0;
+          font-weight: 100;
+          padding: 1rem 5%;
+          border-bottom: 1px solid #E4E4E4;
+          font-size: 1.25rem;
+          a {
+            text-decoration: none;
+            color: #333233;
+            &:hover {
+              color: #50A7C7;
+            }
+          }
+        }
+        .data {
+          padding: .75rem 5%;
+          color: #969696;
+          .username, .buttons {
+            margin: 0;
+            font-size: .8rem;
+          }
+          .username {
+            float: left;
+          }
+          .buttons {
+            float: right;
+            span {
+              margin-left: .5rem;
+            }
+          }
+        }
+      }
+  }
+
+#user_show {
+  .user_image_description {
+    width: 78%;
+    float: left;
+    margin-right: 2%
+  }
+  .user_data {
+    width: 20%;
+    float: left;
+    background: #ffffff;
+    padding: 10px;
+    border: 1px solid #E4E4E4;
+    border-radius: 0.8rem;
+    .button {
+      width: 100%;
+      display: inline-block;
+      padding: .75rem 0;
+      margin-bottom: 1rem;
+      text-align: center;
+      text-decoration: none;
+      color: #FFFFFF;
+      &:hover {
+        border: 1px solid #50A7C7;
+      }
+    }
+    .data {
+      width: 100%;
+      display: block;
+      padding: .75rem 0;
+      border-bottom: 1px solid #E9E9E9;
+      text-decoration: none;
+      color: #969696;
+      margin: 0;
+    }
+  }
+  h1 {
+    margin: 0;
+    color: #333233;
+  }
+  img {
+    width: 100%;
+    border-radius: .3rem;
+  }
+  .username {
+    color: #969696;
+    margin: 0 0 1.5rem 0;
+  }
+  .description {
+    margin: 2rem 0;
+    line-height: 1.5;
+    color: #333333;
+    font-size: 16px;
+  }
+}

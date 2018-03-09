@@ -1,0 +1,41 @@
+- if user_signed_in?
+  #intro
+    %h3
+      Hello
+      = current_user.name
+    %h4
+      Share a pic
+      = link_to "HERE", new_post_path
+      !
+- else
+  %p#intro
+    Share Your Pics!
+    %br/
+    %br/
+    We Have Passion For Asian Babes 
+- @tags.each do |tag|
+  .tag
+    = link_to tag.name, tag, class: 'tag'
+#posts
+  - @posts.each do |post|
+    .post
+      .post_image
+        = link_to (image_tag post.image.url(:small)), post
+      .post_content
+        .title
+          %h2= link_to post.title, post
+        .data.clearfix
+          %p.username
+            Shared by
+            = link_to (post.user.name), post.user.name
+
+
+
+          %p.buttons
+            %span
+              %i.fa.fa-comments-o
+              = post.comments.count
+            %span
+              %i.fa.fa-thumbs-o-up
+              = post.get_likes.size
+= will_paginate @posts

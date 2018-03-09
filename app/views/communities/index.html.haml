@@ -1,0 +1,8 @@
+#communities
+  - @community.each do |community|
+    .community
+      .community_image
+        = link_to (image_tag community.image.url(:small)), community
+      .community_content
+        .title
+          %h2= link_to community.name, community

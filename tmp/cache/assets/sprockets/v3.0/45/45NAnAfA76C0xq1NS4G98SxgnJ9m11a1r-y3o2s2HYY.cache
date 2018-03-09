@@ -1,0 +1,7 @@
+I"b(function() {
+  jQuery(function() {
+    return $('#post_id').chosen();
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,20 @@
+#intro_wrapper.post_img_wrapper
+  = simple_form_for @post, html: { multipart: true } do |f|
+  
+    #intro
+      #container.post_btn.post_btn-success2.fileinput-button
+        = f.label :choose_image_here
+        = f.file_field :image
+
+    %br/
+    = f.input :tag_ids,
+                  :as => :select,
+                  :input_html => {:class => "chosen-input",   :style => "min-width: 350px;", multiple: true},
+                  :collection => Tag.order(:name).pluck(:name, :id)
+    %br/
+    = f.input :title
+    = f.input :link
+    = f.input :modelname
+    #container.post_btn.post_btn-success.fileinput-button
+      = f.label :submit_image
+      = f.button :submit

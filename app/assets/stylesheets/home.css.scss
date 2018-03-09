@@ -1,0 +1,199 @@
+#intro {
+  margin: 2.75rem 0 1.75rem 0;
+  text-align: center;
+  font-size: 1.75rem;
+  line-height: 1;
+  span {
+    font-size: 1.4rem;
+    color: #333333;
+  }
+}
+#posts {
+  .post {
+    background: #ffffff;
+    width: 30%;
+    float: left;
+    margin: 1rem 1.5%;
+    border: 1px solid #E4E4E4;
+    border-radius: 0.3rem;
+    .post_image {
+      height: 200px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        border-radius: .3rem .3rem 0 0;
+        &:hover {
+          opacity:0.8;
+        }
+      }
+    }
+    .post_content {
+      h2 {
+        margin: 0;
+        padding: 1rem 5%;
+        border-bottom: 1px solid #E4E4E4;
+        font-size: 1.4rem;
+        a {
+          color: #333233;
+          &:hover {
+            color: #50A7C7;
+          }
+        }
+      }
+      .data {
+        padding: .75rem 5%;
+        color: #969696;
+        .username, .buttons {
+          margin: 0;
+          font-size: 1.4rem;
+        }
+        .username {
+          float: left;
+        }
+        .buttons {
+          float: right;
+          span {
+            margin-left: .5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+#communities {
+  .community {
+    background: #F8F9FA;
+    width: 30%;
+    float: left;
+    margin: 1rem 1.5%;
+    border: 1px solid #E4E4E4;
+    border-radius: 0.3rem;
+    .community_image {
+      height: 200px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        border-radius: .3rem .3rem 0 0;
+        &:hover {
+          opacity:0.8;
+        }
+      }
+    }
+    .community_content {
+      h2 {
+        margin: 0;
+        padding: 1rem 5%;
+        border-bottom: 1px solid #E4E4E4;
+        font-size: 1.4rem;
+        a {
+          color: #333233;
+          &:hover {
+            color: #50A7C7;
+          }
+        }
+      }
+      .data {
+        padding: .75rem 5%;
+        color: #969696;
+        .username, .buttons {
+          margin: 0;
+          font-size: 1.4rem;
+        }
+        .username {
+          float: left;
+        }
+        .buttons {
+          float: right;
+          span {
+            margin-left: .5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.community2 {
+    background: #F8F9FA;
+    width: 100%;
+    float: left;
+    margin: 1rem 1.5%;
+    border: 1px solid #E4E4E4;
+    border-radius: 0.3rem;
+}
+
+#intro_wrapper {
+  background-color: #ffffff;
+  border: 1px solid #E4E4E4;
+  .profile-pic {
+    width: 50%;
+    float: left;
+  }
+  .profile-text {
+    width: 50%;
+    float: right;
+  }
+}
+.post_img_wrapper {
+  padding: 30px;
+}
+
+.post_btn {
+    padding: 50px 200px;
+    padding-top: 60px;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    &:hover {
+      background-color: #676dad;
+    }
+}
+
+/*Also */
+ .post_btn-success {
+    color: #fff;
+    background-color: #949df8;
+    border-color: #E4E4E4;
+}
+ .post_btn-success2 {
+    color: #fff;
+    background-color: #f8949d;
+    border-color: #E4E4E4;
+}
+/* This is copied from https://github.com/blueimp/jQuery-File-Upload/blob/master/css/jquery.fileupload.css */
+ .fileinput-button {
+    position: relative;
+    overflow: hidden;
+}
+/*Also*/
+ .fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter:'alpha(opacity=0)';
+    font-size: 200px;
+    direction: ltr;
+    cursor: pointer;
+}
+
+textarea {
+  width: 500px;
+  height: 200px;
+}
+

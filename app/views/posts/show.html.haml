@@ -1,0 +1,92 @@
+#post_show
+  %h1= @post.title
+  - if @post.modelname
+    Model:
+    =@post.modelname
+  %br/
+  Tags: 
+  - @post.tags.each do |tag|
+    .tag
+      = link_to tag.name, tag_path(:id => tag.id), class: 'tag'
+  %p.username
+    Shared by
+    = @post.user.name
+    = @post.created_at.strftime("%b %d. %Y")
+    (about
+    = time_ago_in_words(@post.created_at)
+    ago)
+  .clearfix
+    .post_data
+      = link_to like_post_path(@post), method: :get, class: "data" do
+        %i.fa.fa-thumbs-o-up
+        = pluralize(@post.get_upvotes.size, "Wow")
+      = link_to dislike_post_path(@post), method: :get, class: "data" do
+        %i.fa.fa-thumbs-o-down
+        = pluralize(@post.get_downvotes.size, "Eew")
+      %p.data
+        %i.fa.fa-comments-o
+        = pluralize(@post.comments.count, "Comment")
+      - if @post.link
+        = link_to "Visit link", url_with_protocol(@post.link), target: "_blank", class: "button"
+        .user
+          .user.avatar
+          %p.username
+            Shared by
+            = link_to (@post.user.name), user_path(@post.user.name)
+          = link_to (image_tag @post.user.avatar.url(:small)), user_path(@post.user.name)
+      - if @post.user == current_user
+        = link_to "Edit", edit_post_path(@post), class: "data"
+        = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
+    .post_image_description
+      = link_to image_tag(@post.image.url), @post.image.url(:original), :popup=>['original_image', 'height=500,width=700'], target: "_blank"
+      Click for original size.
+      .description= simple_format(@post.description)
+      = link_to "Back", posts_path
+    #random_post
+      %h4 Random Pics
+      .post
+        .post_image
+          = link_to (image_tag @random_post.image.url(:small)), post_path(@random_post)
+        .post_content
+          .title
+            %h2= link_to @random_post.title, post_path(@random_post)
+          .data.clearfix
+            %p.username
+              Shared by
+              = link_to (@random_post.user.name), user_path(@random_post.user.name)
+            %p.buttons
+              %span
+                %i.fa.fa-comments-o
+                = @random_post.comments.count
+              %span
+                %i.fa.fa-thumbs-o-up
+                = @random_post.get_likes.size
+    #random_post
+      .post
+        .post_image
+          = link_to (image_tag @random_post2.image.url(:small)), post_path(@random_post2)
+        .post_content
+          .title
+            %h2= link_to @random_post2.title, post_path(@random_post)
+          .data.clearfix
+            %p.username
+              Shared by
+              = link_to (@random_post2.user.name), user_path(@random_post2.user.name)
+            %p.buttons
+              %span
+                %i.fa.fa-comments-o
+                = @random_post2.comments.count
+              %span
+                %i.fa.fa-thumbs-o-up
+                = @random_post2.get_likes.size
+
+
+
+#comments
+  %h2.comment_count= pluralize(@post.comments.count, "Comment")
+  - @comments.each do |comment|
+    .comment
+      %p.username= comment.user.name
+      %p.content= comment.content
+
+  = render 'comments/form'

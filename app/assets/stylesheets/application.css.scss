@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require formtastic
+ *= require my_formtastic_changes
+ *= require chosen
+ */
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@font-face{
+font-family:"Avenir Next";
+src:url(font-path("avenirnext.otf"));
+src:url(font-path("avenirnext.otf?#iefix")) format("embedded-opentype"), url(font-path("avenirnext.otf")) format("otf"), url(font-path("avenirnext.otf")) format("truetype");
+font-style:normal;
+font-weight:normal;}
+
+body {
+  font-family: "Avenir Next";
+  font-weight: 400;
+  background-color: #EEEEEE;
+}
+
+h1, h2, h3, h4, h5, h6, a {
+  font-weight: 400;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.wrapper {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.button {
+  border: 1px solid #c33d4a;
+  padding: .7rem 1.25rem;
+  border-radius: .3rem;
+  outline: none;
+  background: #f44d5d;
+  color: #ffffff;
+  &:hover {
+    color: #FFFFFF;
+    background-color: #c33d4a;
+  }
+  a {
+    color: #FFFFFF;
+  }
+}
+
+header {
+  width: 100%;
+  padding: 2rem 0;
+  border-bottom: 1px solid #E4E4E4;
+  background-color: #FFFFFF;
+  #logo {
+    font-family: "Canaro";
+    float: left;
+    font-size: 4rem;
+    font-weight: 600;
+    a {
+      color: #ff7473;
+      text-decoration: none;
+      &:hover {
+        color: #333333;
+      }
+    }
+  }
+  nav {
+    float: right;
+    a {
+      margin-left: 1.5rem;
+      line-height: 60px;
+      color: #333333;
+      text-decoration: none;
+      &:hover {
+        color: #767dc6;
+      }
+    }
+  }
+}
+.alert {
+  padding: 0;
+}
+
+@import 'home.css.scss';
+@import 'post.css.scss';
+@import 'communities.scss';
+@import 'collections.scss';
+@import 'tags.scss';
+@import 'users.scss';

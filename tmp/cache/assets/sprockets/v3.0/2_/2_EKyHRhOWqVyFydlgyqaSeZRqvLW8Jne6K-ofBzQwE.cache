@@ -1,0 +1,11 @@
+I"(function() {
+  jQuery(function() {
+    return $(window).scroll(function() {
+      if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        return $.getScript($('.pagination .next_page').attr('href'));
+      }
+    });
+  });
+
+}).call(this);
+:ET

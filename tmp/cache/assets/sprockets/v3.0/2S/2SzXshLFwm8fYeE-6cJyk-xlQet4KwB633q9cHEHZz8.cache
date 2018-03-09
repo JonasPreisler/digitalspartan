@@ -1,0 +1,7 @@
+I"g(function() {
+  jQuery(function() {
+    return $('#post_tag_ids').chosen();
+  });
+
+}).call(this);
+:ET
