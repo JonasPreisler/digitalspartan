@@ -1,8 +1,8 @@
 #post_show
   %h1= @post.title
-  - if @post.modelname
-    Model:
-    =@post.modelname
+  - if @post.category
+    Category:
+    =@post.category
   %br/
   Tags: 
   - @post.tags.each do |tag|
@@ -22,12 +22,26 @@
         = pluralize(@post.get_upvotes.size, "Wow")
       = link_to dislike_post_path(@post), method: :get, class: "data" do
         %i.fa.fa-thumbs-o-down
-        = pluralize(@post.get_downvotes.size, "Eew")
+        = pluralize(@post.get_downvotes.size, "Dislike")
       %p.data
         %i.fa.fa-comments-o
         = pluralize(@post.comments.count, "Comment")
+      - if @post.usersize
+        .data
+          = "Users: #{@post.usersize}"
+      %br
+      - if @post.price
+        = link_to "Bot $#{@post.price}", @post.link, class: "button"
+      - if @post.shoutout_price
+        = link_to "Shoutout $#{@post.shoutout_price}", @post.link, class: "button"
+      = form_tag charges_path do
+        %article
+          - if flash[:error].present?
+            #error_explanation
+              %p= flash[:error]
+        %script.stripe-button{"data-amount" => "100", "data-description" => "Chatbot", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
       - if @post.link
-        = link_to "Visit link", url_with_protocol(@post.link), target: "_blank", class: "button"
+        = link_to "Visit bot", url_with_protocol(@post.link), target: "_blank", class: "button"
         .user
           .user.avatar
           %p.username
@@ -38,12 +52,17 @@
         = link_to "Edit", edit_post_path(@post), class: "data"
         = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
     .post_image_description
-      = link_to image_tag(@post.image.url), @post.image.url(:original), :popup=>['original_image', 'height=500,width=700'], target: "_blank"
-      Click for original size.
+      = image_tag @post.image.url(:medium)
       .description= simple_format(@post.description)
-      = link_to "Back", posts_path
+      - if @post.screenshot?
+        = link_to image_tag(@post.screenshot.url), @post.screenshot.url(:small),target: "_blank"
+        %br
+        = link_to image_tag(@post.screenshot2.url), @post.screenshot2.url(:small),target: "_blank"
+        %br
+        = link_to image_tag(@post.screenshot3.url), @post.screenshot3.url(:small),target: "_blank"
+        = link_to "Back", posts_path
     #random_post
-      %h4 Random Pics
+      %h4 Other Bots
       .post
         .post_image
           = link_to (image_tag @random_post.image.url(:small)), post_path(@random_post)

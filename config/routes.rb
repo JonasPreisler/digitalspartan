@@ -1,10 +1,26 @@
 Rails.application.routes.draw do
+
+  get 'callback/index'
+  post '/' => 'callback#received_data'
+  get 'callback/received_data'
+  root 'dashboard#index'
+ 
+  namespace 'api' do
+    namespace 'v1' do
+      resources :users
+      resources :posts
+    end
+  end
+ 
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   resources :communities
   resources :collections
   resources :categories
   devise_for :users
   devise_for :models
+  resources :charges
+  resources :sizes
 
   resources :posts do
     member do

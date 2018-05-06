@@ -1,7 +1,7 @@
 !!!
 %html
 %head
-  %title Nanovate
+  %title BotMuffin
   = stylesheet_link_tag    'application', media: 'all'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %link{:rel => "stylesheet", :href => "http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}
@@ -15,10 +15,10 @@
       #logo= link_to (image_tag "logo.png"), root_path
       %nav
         - if user_signed_in?
-          = link_to "Pics", posts_path
+          = link_to "Bots", posts_path
           = link_to "Edit Your Account", edit_user_registration_path
           = link_to "Log out", destroy_user_session_path, method: :delete
-          = link_to "Upload Pic", new_post_path, class: "button"
+          = link_to "Sell Your Bot", new_post_path, class: "button"
         - else
           = link_to "Log In", new_user_session_path
           = link_to "Register Free", new_user_registration_path, class: "button"

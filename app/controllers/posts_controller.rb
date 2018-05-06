@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @posts = Post.all.order(:cached_votes_score => :desc).page(params[:page]).per_page(9)
     @user = User.where name: params[:name]
     @tags = Tag.all.order(:name)
+    @sizes = Size.all.order(:name)
     @community = Community.where name: params[:name]
     @collection = Collection.where name: params[:name]
   end
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
     @user = User.where name: params[:name]
     @user = User.where avatar: params[:avatar]
     @tag = Tag.where name: params[:name]
+    @size = Size.where name: params[:name]
     @community = Community.where name: params[:name]
   end
 
@@ -73,6 +75,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :link, :description, :image, :tag, :name, :community, :community_id, :collection_id, :modelname, :tag_id, tag_ids: [])
+    params.require(:post).permit(:title, :link, :description, :image, :tag, :name, :community, :community_id, :collection_id, :screenshot, :screenshot2, :screenshot3, :category, :price, :shoutout_price, :size, :usersize, :tag_id, tag_ids: [])
   end
 end

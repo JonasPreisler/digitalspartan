@@ -27,11 +27,14 @@
       width: 100%;
       display: block;
       padding: .75rem 0;
-      border-bottom: 1px solid #E9E9E9;
+      border-bottom: 1px solid #f1f1f1;
       text-decoration: none;
       color: #969696;
       margin: 0;
     }
+  }
+  .data:hover {
+    color: #57a0b8;
   }
   #random_post {
     width: 25%;
@@ -42,7 +45,7 @@
     .post {
       background: #F8F9FA;
       border: 1px solid #E4E4E4;
-      border-radius: 0.3rem;
+      border-radius: 0.7rem;
       .post_image {
         height: 200px;
         overflow: hidden;
@@ -144,4 +147,10 @@
 }
 select#post_tag_id {
   min-width: 350px;
+}
+
+.prices {
+  font-size: 20px;
+  font-weight: 700;
+  color: #57a0b8;
 }

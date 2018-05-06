@@ -1,7 +1,0 @@
-I"c(function() {
-  jQuery(function() {
-    return $('#post_ids').chosen();
-  });
-
-}).call(this);
-:ET

@@ -2,12 +2,23 @@ class Post < ApplicationRecord
   acts_as_votable
   belongs_to :user
   belongs_to :collection
+  belongs_to :category
   has_many :comments
+  belongs_to :size
   has_many :taggings
   has_many :tags, through: :taggings
   belongs_to :community
 
   has_attached_file :image, styles: { medium: "700x500#", small: "350x250>" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  has_attached_file :screenshot, styles: { medium: "700x500#", small: "50x50!" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  
+  has_attached_file :screenshot2, styles: { medium: "700x500#", small: "50x50!" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  has_attached_file :screenshot3, styles: { medium: "700x500#", small: "50x50!" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
 end
