@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'callback/index'
   post '/' => 'callback#received_data'
   get 'callback/received_data'
-  root 'dashboard#index'
  
   namespace 'api' do
     namespace 'v1' do
