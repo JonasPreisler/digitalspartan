@@ -53,13 +53,13 @@
       = image_tag @post.image.url(:medium)
       .description= simple_format(@post.description)
       - if @post.screenshot?
-        = link_to image_tag(@post.screenshot.url), @post.screenshot.url(:medium),target: "_blank" if @post.screenshot?
+        = link_to image_tag @post.screenshot.url(:medium),target: "_blank" if @post.screenshot?
         %br
         %br
-        = link_to image_tag(@post.screenshot2.url), @post.screenshot2.url(:medium),target: "_blank" if @post.screenshot2?
+        = link_to image_tag @post.screenshot2.url(:medium),target: "_blank" if @post.screenshot2?
         %br
         %br
-        = link_to image_tag(@post.screenshot3.url), @post.screenshot3.url(:medium),target: "_blank" if @post.screenshot3?
+        = link_to image_tag @post.screenshot3.url(:medium),target: "_blank" if @post.screenshot3?
         = link_to "Back", posts_path
     #random_post
       %h4 Other Bots
