@@ -27,6 +27,10 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :development, :production do
+  gem 'carrierwave', '~> 1.0'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml', '~> 4.0', '>= 4.0.7'
@@ -41,5 +45,4 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem 'stripe'
 gem 'http'
 gem "select2-rails"
-gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '~> 4.8'
