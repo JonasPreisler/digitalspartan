@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
- require 'carrierwave/orm/activerecord'
+  require 'carrierwave/orm/activerecord'
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
