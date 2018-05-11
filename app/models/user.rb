@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,8 +10,4 @@ class User < ApplicationRecord
   has_one :lab
   has_many :collections, dependent: :destroy
   validates_uniqueness_of :name
-  
- 
-  mount_uploader :avatar, AvatarUploader
-
 end
