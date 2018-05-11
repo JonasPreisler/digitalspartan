@@ -46,3 +46,4 @@ gem 'stripe'
 gem 'http'
 gem "select2-rails"
 gem 'mini_magick', '~> 4.8'
+gem 'fog-aws'
