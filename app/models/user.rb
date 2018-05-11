@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :collections, dependent: :destroy
   validates_uniqueness_of :name
   
-  has_many :credit_cards, dependent: :destroy
  
   mount_uploader :avatar, AvatarUploader
 
