@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  require 'carrierwave/orm/activerecord'
   acts_as_votable
   belongs_to :user
   belongs_to :collection

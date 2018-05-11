@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  require 'carrierwave/orm/activerecord'
   mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
