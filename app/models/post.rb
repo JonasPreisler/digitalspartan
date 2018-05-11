@@ -9,16 +9,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :taggings
   belongs_to :community
 
-  has_attached_file :image, styles: { medium: "700x500#", small: "350x250>" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-
-  has_attached_file :screenshot, styles: { medium: "700x500#", small: "50x50!" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  
-  has_attached_file :screenshot2, styles: { medium: "700x500#", small: "50x50!" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-
-  has_attached_file :screenshot3, styles: { medium: "700x500#", small: "50x50!" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-
+  mount_uploader :image, ImageUploader
+  mount_uploader :screenshot, ScreenshotUploader
+  mount_uploader :screenshot2, ScreenshotUploader
+  mount_uploader :screenshot3, ScreenshotUploader
 end

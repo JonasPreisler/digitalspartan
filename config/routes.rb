@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :types
   get 'callback/index'
   post '/' => 'callback#received_data'
   get 'callback/received_data'
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
       resources :posts
     end
   end
- 
+
+  get 'about' => 'about#index', as: 'about'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   resources :communities

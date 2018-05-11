@@ -2,7 +2,7 @@
   = simple_form_for @post, html: { multipart: true } do |f|
     #intro
       #container.post_btn.post_btn-success2.fileinput-button
-        = f.label :upload_image
+        = f.label :upload_cover_image
         = f.file_field :image
 
     %br/
@@ -16,7 +16,7 @@
     = link_to "Custom tag", new_tag_path
     %br
     /= f.association :size, prompt: "How many users does your bot have?"
-    = f.input :usersize, prompt: "How many users does your bot have?"
+    = f.input :usersize, label: 'How many users does your bot currently have?'
 
     = f.input :price, label: 'Bot price in USD (optional)'
     = f.input :shoutout_price, label: 'Shoutout price in USD (optional)'
@@ -43,9 +43,6 @@
       = f.label :upload_image_3
       = f.file_field :screenshot3
     %br
-    Image 2 and 3 will only be displayed if image 1 is uploaded.
-    %br
-    This could for example be screenshots of Chatfuel analytics or screenshots from Messenger.
     %br
     %br
     #container.post_btn.post_btn-success.fileinput-button

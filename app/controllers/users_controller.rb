@@ -4,4 +4,6 @@ class UsersController < ApplicationController
     @user = User.find_by name: params[:name]
   end
 
+  private
+
 end

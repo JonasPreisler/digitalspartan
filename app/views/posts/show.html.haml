@@ -28,26 +28,24 @@
         = pluralize(@post.comments.count, "Comment")
       - if @post.usersize
         .data
-          = "Users: #{@post.usersize}"
-      %br
+          = "#{@post.usersize} users"
       - if @post.price
-        = link_to "Bot $#{@post.price}", @post.link, class: "button"
+        .data
+          = "$#{@post.price} bot"
       - if @post.shoutout_price
-        = link_to "Shoutout $#{@post.shoutout_price}", @post.link, class: "button"
-      = form_tag charges_path do
-        %article
-          - if flash[:error].present?
-            #error_explanation
-              %p= flash[:error]
-        %script.stripe-button{"data-amount" => "100", "data-description" => "Chatbot", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
+        .data
+          = "$#{@post.shoutout_price} shoutout"
       - if @post.link
         = link_to "Visit bot", url_with_protocol(@post.link), target: "_blank", class: "button"
         .user
           .user.avatar
-          %p.username
+          = link_to (image_tag @post.user.avatar.url(:small)), user_path(@post.user.name)
+      - if @post.user.email
+        .data
+          = "Email: #{@post.user.email}"
+          .data
             Shared by
             = link_to (@post.user.name), user_path(@post.user.name)
-          = link_to (image_tag @post.user.avatar.url(:small)), user_path(@post.user.name)
       - if @post.user == current_user
         = link_to "Edit", edit_post_path(@post), class: "data"
         = link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
@@ -55,11 +53,13 @@
       = image_tag @post.image.url(:medium)
       .description= simple_format(@post.description)
       - if @post.screenshot?
-        = link_to image_tag(@post.screenshot.url), @post.screenshot.url(:small),target: "_blank"
+        = link_to image_tag(@post.screenshot.url), @post.screenshot.url(:medium),target: "_blank" if @post.screenshot?
         %br
-        = link_to image_tag(@post.screenshot2.url), @post.screenshot2.url(:small),target: "_blank"
         %br
-        = link_to image_tag(@post.screenshot3.url), @post.screenshot3.url(:small),target: "_blank"
+        = link_to image_tag(@post.screenshot2.url), @post.screenshot2.url(:medium),target: "_blank" if @post.screenshot2?
+        %br
+        %br
+        = link_to image_tag(@post.screenshot3.url), @post.screenshot3.url(:medium),target: "_blank" if @post.screenshot3?
         = link_to "Back", posts_path
     #random_post
       %h4 Other Bots

@@ -43,3 +43,15 @@ size = Size.create!(name: '500k-1 mio')
 size = Size.create!(name: '1 mio+')
 
 
+category = Category.create!(name: 'Chatbot')
+category = Category.create!(name: '3d model')
+category = Category.create!(name: 'Vector')
+category = Category.create!(name: 'Mockup')
+category = Category.create!(name: 'Facebook Page')
+category = Category.create!(name: 'Website')
+category = Category.create!(name: 'Template')
+category = Category.create!(name: 'Email List')
+
+
+
+

@@ -14,6 +14,7 @@
  *= require formtastic
  *= require my_formtastic_changes
  *= require chosen
+ *= require select2
  */
  
 @import "bootstrap-sprockets";
@@ -54,20 +55,18 @@ h1, h2, h3, h4, h5, h6, a {
 }
 
 .button {
-  border: 1px solid #c33d4a;
-  padding: .7rem 1.25rem;
-  border-radius: .3rem;
-  outline: none;
-  background: #f44d5d;
-  color: #ffffff;
-  &:hover {
-    color: #FFFFFF;
-    background-color: #c33d4a;
-  }
-  a {
-    color: #FFFFFF;
-  }
+  background: none;
+  border: 2px solid #c33d4a;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 0.8em 1.6em;
+  color: #c33d4a;
 }
+
+
+
+
 
 header {
   width: 100%;
@@ -75,7 +74,7 @@ header {
   border-bottom: 1px solid #E4E4E4;
   background-color: #FFFFFF;
   #logo {
-    font-family: "Canaro";
+    font-family: "Avenir Next";
     float: left;
     font-size: 4rem;
     font-weight: 600;
@@ -95,13 +94,27 @@ header {
       color: #333333;
       text-decoration: none;
       &:hover {
-        color: #767dc6;
+        color: #34b3ab;
       }
     }
   }
 }
 .alert {
   padding: 0;
+}
+
+.button-header {
+  background: none;
+  border: 2px solid #c33d4a;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 0.8em 1.6em;
+  color: #c33d4a;
+  &:hover {
+    color: #1c1c1c;
+    border: 2px solid #1c1c1c;
+  }
 }
 
 @import 'home.css.scss';

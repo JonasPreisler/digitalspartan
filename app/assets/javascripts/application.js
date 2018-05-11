@@ -16,6 +16,8 @@
 //= require_tree .
 //= require chosen-jquery
 //= require scaffold
+//= require select2
+
 
 function formSubmit() {
             var confirm_message = confirm("Files selected for import are \n Zip File: "+document.getElementById("zip_file_import").value +"\n Manifest File: "+document.getElementById("manifest_file_import").value+" \nDo you want to proceed?");

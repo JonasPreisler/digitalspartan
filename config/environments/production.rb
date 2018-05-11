@@ -84,4 +84,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   config.assets.precompile += %w( ie6.css ie7.css )
+
+  require 'uglifier'
+  config.assets.js_compressor = Uglifier.new(output: {ascii_only: true, quote_keys: true})
 end

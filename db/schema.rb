@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180506150852) do
+ActiveRecord::Schema.define(version: 20180511091906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,30 @@ ActiveRecord::Schema.define(version: 20180506150852) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", id: :bigserial, force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "order_id"
+    t.decimal "quantity"
+    t.decimal "unit_price",  precision: 12, scale: 3
+    t.decimal "total_price", precision: 12, scale: 3
+  end
+
+  create_table "order_statuses", id: :bigserial, force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "orders", id: :bigserial, force: :cascade do |t|
+    t.decimal  "total"
+    t.decimal  "tax"
+    t.decimal  "shipping"
+    t.decimal  "subtotal"
+    t.string   "payment_method"
+    t.integer  "order_status_id"
+    t.string   "transaction_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "link"
@@ -123,6 +147,9 @@ ActiveRecord::Schema.define(version: 20180506150852) do
     t.string   "screenshot2_file_name"
     t.string   "screenshot3_file_name"
     t.integer  "usersize"
+    t.string   "image"
+    t.string   "screenshot2"
+    t.string   "screenshot3"
     t.index ["cached_votes_down"], name: "index_posts_on_cached_votes_down", using: :btree
     t.index ["cached_votes_score"], name: "index_posts_on_cached_votes_score", using: :btree
     t.index ["cached_votes_total"], name: "index_posts_on_cached_votes_total", using: :btree
@@ -151,6 +178,11 @@ ActiveRecord::Schema.define(version: 20180506150852) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "types", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -171,6 +203,7 @@ ActiveRecord::Schema.define(version: 20180506150852) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "lab_id"
+    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

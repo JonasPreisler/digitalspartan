@@ -14,14 +14,12 @@
     .wrapper.clearfix
       #logo= link_to (image_tag "logo.png"), root_path
       %nav
+        = link_to "Bots", posts_path
+        = link_to "About", about_path
         - if user_signed_in?
-          = link_to "Bots", posts_path
           = link_to "Edit Your Account", edit_user_registration_path
-          = link_to "Log out", destroy_user_session_path, method: :delete
-          = link_to "Sell Your Bot", new_post_path, class: "button"
         - else
-          = link_to "Log In", new_user_session_path
-          = link_to "Register Free", new_user_registration_path, class: "button"
+        = link_to "Sell Your Bot", new_post_path, class: "button-header"
   %p.notice= notice
   %p.alert= alert
 
