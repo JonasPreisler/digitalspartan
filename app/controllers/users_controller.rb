@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   end
 
   private
-  def users_params
-    params.require(:post).permit(:avatar)
+  def user_params
+    params.require(:user).permit(:avatar)
   end
 
 end
