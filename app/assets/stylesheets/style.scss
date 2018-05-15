@@ -1,0 +1,25 @@
+#tags-search-results .ui-menu{
+  width: inherit !important; 
+  padding-left: 10px;
+  li{
+    list-style: none;
+    margin-bottom: 10px;
+  }
+  li:nth-child(1){
+    margin-top: 10px;
+  }
+  li.ui-menu-item:hover{
+    cursor: pointer;
+  }
+  li.ui-menu-item > .ui-menu-item-wrapper.ui-state-active{
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    transition: border 0.3s;
+  }
+}
+
+.results {
+  background-color: #fff;
+  font-size: 20px;
+  text-align: left;
+}
